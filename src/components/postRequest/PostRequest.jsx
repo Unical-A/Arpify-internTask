@@ -44,17 +44,26 @@ export const PostRequest = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {data.map((item, index) => (
-                        <tr key={index}>
-                            {item.firstName === "Arsen" ? <Styled.Td>{item.firstName}</Styled.Td> :
-                                <td>{item.firstName}</td>}
-                            {item.lastName === "Vardanyan" ? <Styled.Td>{item.lastName}</Styled.Td> :
-                                <td>{item.lastName}</td>}
-                            {item.birthDay === "1984-08-01" ? <Styled.Td>{item.birthDay}</Styled.Td> :
-                                <td>{item.birthDay}</td>}
-                            {item.firstName === "Arsen" ? <Styled.Td>{item.gender}</Styled.Td> :
-                                <td>{item.gender}</td>}
-                        </tr>
+                    {data.map((item) => (
+                        <>
+                            {(item.firstName === "Arsen" &&
+                                item.lastName === "Vardanyan" &&
+                                item.birthDay === "1984-08-01" &&
+                                item.gender === "male") ?
+                                <tr>
+                                    <Styled.Td>{item.firstName}</Styled.Td>
+                                    <Styled.Td>{item.lastName}</Styled.Td>
+                                    <Styled.Td>{item.birthDay}</Styled.Td>
+                                    <Styled.Td>{item.gender}</Styled.Td>
+                                </tr> :
+                                <tr>
+                                    <td>{item.firstName}</td>
+                                    <td>{item.lastName}</td>
+                                    <td>{item.birthDay}</td>
+                                    <td>{item.gender}</td>
+                                </tr>
+                            }
+                        </>
                     ))}
                     </tbody>
                 </table>
